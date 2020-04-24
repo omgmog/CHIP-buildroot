@@ -1,0 +1,20 @@
+--- a/libfakeroot.c
++++ b/libfakeroot.c
+@@ -256,10 +256,16 @@ void load_library_symbols(void){
+  /* clear dlerror() just in case dlsym() legitimately returns NULL */
+     msg = dlerror();
+     *(next_wrap[i].doit)=dlsym(get_libc(), next_wrap[i].name);
++
+     if ( (msg = dlerror()) != NULL){
+-      fprintf (stderr, "dlsym(%s): %s\n", next_wrap[i].name, msg);
+-/*    abort ();*/
++#ifdef LIBFAKEROOT_DEBUGGING
++      if (fakeroot_debug) {
++        fprintf (stderr, "dlsym(%s): %s\n", next_wrap[i].name, msg);
++/*      abort ();*/
++      }
++#endif
+     }
++
+   }
+ }

@@ -1,0 +1,24 @@
+--- a/gio/gdbusauth.c
++++ b/gio/gdbusauth.c
+@@ -1243,9 +1243,9 @@
+         case SERVER_STATE_WAITING_FOR_DATA:
+           debug_print ("SERVER: WaitingForData");
+           line = _my_g_data_input_stream_read_line (dis, &line_length, cancellable, error);
+-          debug_print ("SERVER: WaitingForData, read '%s'", line);
+           if (line == NULL)
+             goto out;
++          debug_print ("SERVER: WaitingForData, read '%s'", line);
+           if (g_str_has_prefix (line, "DATA "))
+             {
+               gchar *encoded;
+@@ -1292,9 +1292,9 @@ _g_dbus_auth_run_server (GDBusAuth              *auth,
+                                                     &line_length,
+                                                     cancellable,
+                                                     error);
+-          debug_print ("SERVER: WaitingForBegin, read '%s'", line);
+           if (line == NULL)
+             goto out;
++          debug_print ("SERVER: WaitingForBegin, read '%s'", line);
+           if (g_strcmp0 (line, "BEGIN") == 0)
+             {
+               /* YAY, done! */

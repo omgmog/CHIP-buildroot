@@ -1,0 +1,91 @@
+--- a/lib/libmtd.c
++++ b/lib/libmtd.c
+@@ -32,6 +32,7 @@
+ #include <sys/stat.h>
+ #include <sys/ioctl.h>
+ #include <inttypes.h>
++#include <sys/sysmacros.h>
+ 
+ #include <mtd/mtd-user.h>
+ #include <libmtd.h>
+
+--- a/lib/libmtd_legacy.c
++++ b//lib/libmtd_legacy.c
+@@ -31,8 +31,9 @@
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <sys/ioctl.h>
+-#include <mtd/mtd-user.h>
++#include <sys/sysmacros.h>
+ 
++#include <mtd/mtd-user.h>
+ #include <libmtd.h>
+ #include "libmtd_int.h"
+ #include "common.h"
+ 
+--- a/mkfs.jffs2.c
++++ b/mkfs.jffs2.c
+@@ -50,6 +50,7 @@
+ #define PROGRAM_NAME "mkfs.jffs2"
+ 
+ #include <sys/types.h>
++#include <sys/sysmacros.h>
+ #include <stdio.h>
+ #include <sys/stat.h>
+ #include <unistd.h>
+
+--- a/jffs2reader.c
++++ b/jffs2reader.c
+@@ -75,6 +75,7 @@ BUGS:
+ #include <sys/stat.h>
+ #include <dirent.h>
+ #include <zlib.h>
++#include <sys/sysmacros.h>
+ 
+ #include "mtd/jffs2-user.h"
+ #include "common.h"
+ 
+--- a/mkfs.ubifs/devtable.c
++++ b/mkfs.ubifs/devtable.c
+@@ -44,6 +44,7 @@
+  * for more information about what the device table is.
+  */
+ 
++#include <sys/sysmacros.h>
+ #include "mkfs.ubifs.h"
+ #include "hashtable/hashtable.h"
+ #include "hashtable/hashtable_itr.h"
+ 
+--- a/mkfs.ubifs/mkfs.ubifs.c
++++ b/mkfs.ubifs/mkfs.ubifs.c
+@@ -22,6 +22,7 @@
+ 
+ #define _XOPEN_SOURCE 500 /* For realpath() */
+ 
++#include <sys/sysmacros.h>
+ #include "mkfs.ubifs.h"
+ #include <crc32.h>
+ #include "common.h"
+ 
+--- a/tests/ubi-tests/integ.c
++++ b/tests/ubi-tests/integ.c
+@@ -11,7 +11,7 @@
+ #include <errno.h>
+ 
+ #include <sys/ioctl.h>
+-#include <sys/stat.h>
++#include <sys/sysmacros.h>
+ 
+ #include "libubi.h"
+ #define PROGRAM_NAME "integ"
+ 
+--- a/ubi-utils/libubi.c
++++ b/ubi-utils/libubi.c
+@@ -32,6 +32,7 @@
+ #include <sys/ioctl.h>
+ #include <sys/stat.h>
+ #include <sys/types.h>
++#include <sys/sysmacros.h>
+ #include <libubi.h>
+ #include "libubi_int.h"
+ #include "common.h"
